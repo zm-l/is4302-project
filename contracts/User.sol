@@ -37,7 +37,6 @@ contract User {
 
     function deleteUser(address owner) external validUser(owner) {
         userList[owner].created = false;
-        numUsers--;
 
         emit userDeleted(owner);
     }
