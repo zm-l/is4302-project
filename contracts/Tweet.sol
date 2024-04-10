@@ -8,8 +8,4 @@ contract Tweet {
     constructor() {
         owner = msg.sender;
     }
-
-    
-
-
 }

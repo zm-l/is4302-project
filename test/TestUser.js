@@ -1,8 +1,9 @@
-const _deploy_contracts = require('../migrations/2_deploy_contract');
+const _deploy_contracts = require('../migrations/2_deploy_contracts');
 var assert = require("assert");
 const { expectEvent } = require("@openzeppelin/test-helpers");
 
 var User = artifacts.require("User");
+var Project = artifacts.require("Project");
 
 contract("TestUser", function (accounts) {
     let instance;
@@ -13,7 +14,7 @@ contract("TestUser", function (accounts) {
         instance = await Project.deployed();
     });
 
-    it("User", async () => {
+    it("should create new user", async () => {
         let tweetOwnerUser = await instance.createUser(
             "tweetOwner",
             "12345678",
@@ -25,12 +26,14 @@ contract("TestUser", function (accounts) {
         assert.equal(
             await userInstance.isValidUser({ from: tweetOwner }),
             true
-        )
+        );
 
-        expectEvent(tweetOwnerUser,
+        expectEvent.inTransaction(tweetOwnerUser.tx, User,
             {
                 username: "tweetOwner",
                 owner: tweetOwner
-            })
-    })
+            }
+        );
+    });
+
 });
