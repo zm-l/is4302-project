@@ -5726,7 +5726,7 @@ truffle-assertions@^0.9.2:
     assertion-error "^1.1.0"
     lodash.isequal "^4.5.0"
 
-truffle@^5.11.5:
+truffle@^5.7.0:
   version "5.11.5"
   resolved "https://registry.yarnpkg.com/truffle/-/truffle-5.11.5.tgz#b0a3a9308c417dbe0290307d7698316d3e8eabe8"
   integrity sha512-yCa2uWs5DmL0spuJUuIMtnVayRQrVuWLtcRXHMB0NLrtWDcRo7VM9RViveV4+oi9LdZ8VpFmmqHGm43LbzUxOA==

@@ -17,42 +17,40 @@ contract User {
 
     uint256 public numUsers = 0;
 
-    modifier validUser(address owner) {
-        require(userList[owner].created == true, "User does not exist!");
+    modifier validUser() {
+        require(userList[msg.sender].created == true, "User does not exist!");
         _;
     }
 
     function createUser(
         string memory username,
-        string memory password,
-        address owner
+        string memory password
     ) external {
-        require(userList[owner].created == false, "User already exists!");
-        user memory newUser = user(username, password, owner, true);
-        userList[owner] = newUser;
+        require(userList[msg.sender].created == false, "User already exists!");
+        user memory newUser = user(username, password, msg.sender, true);
+        userList[msg.sender] = newUser;
         numUsers++;
 
-        emit userCreated(username, password, owner);
+        emit userCreated(username, password, msg.sender);
     }
 
-    function deleteUser(address owner) external validUser(owner) {
-        userList[owner].created = false;
+    function deleteUser() external validUser {
+        userList[msg.sender].created = false;
 
-        emit userDeleted(owner);
+        emit userDeleted(msg.sender);
     }
 
     function updateUser(
         string memory username,
-        string memory password,
-        address owner
-    ) external validUser(owner) {
-        userList[owner].username = username;
-        userList[owner].password = password;
+        string memory password
+    ) external validUser {
+        userList[msg.sender].username = username;
+        userList[msg.sender].password = password;
 
-        emit userUpdated(username, password, owner);
+        emit userUpdated(username, password, msg.sender);
     }
 
     function isValidUser() public view returns (bool) {
-        return userList[tx.origin].created;
+        return userList[msg.sender].created;
     }
 }

@@ -1,39 +1,34 @@
 const _deploy_contracts = require('../migrations/2_deploy_contracts');
 var assert = require("assert");
-const { expectEvent } = require("@openzeppelin/test-helpers");
+const { expectEvent, expectRevert } = require("@openzeppelin/test-helpers");
 
 var User = artifacts.require("User");
-var Project = artifacts.require("Project");
 
 contract("TestUser", function (accounts) {
-    let instance;
-    const tweetOwner = accounts[0];
+    let userInstance;
+    const accountOne = accounts[0];
 
-    before(async () => {
+    beforeEach(async () => {
         userInstance = await User.deployed();
-        instance = await Project.deployed();
     });
 
     it("should create new user", async () => {
-        let tweetOwnerUser = await instance.createUser(
-            "tweetOwner",
-            "12345678",
-            {
-                from: tweetOwner
-            }
-        );
+        const userOne = await userInstance.createUser("userOne", "12345678", { from: accountOne });
+        assert.equal(await userInstance.isValidUser({ from: accountOne }), true);
+        expectEvent(userOne, "userCreated");
 
-        assert.equal(
-            await userInstance.isValidUser({ from: tweetOwner }),
-            true
-        );
-
-        expectEvent.inTransaction(tweetOwnerUser.tx, User,
-            {
-                username: "tweetOwner",
-                owner: tweetOwner
-            }
-        );
     });
+
+    it("should not create user if exists", async () => {
+        await expectRevert(
+            userInstance.createUser("userTwo", "12345678", { from: accountOne }),
+            "User already exists!");
+    });
+
+    it("should update user details", async () => {
+        const newUserOne = await userInstance.updateUser("newUserOne", "12345678", { from: accountOne })
+        assert.equal(await userInstance.isValidUser({ from: accountOne }), true);
+        expectEvent(newUserOne, "userUpdated");
+    })
 
 });
