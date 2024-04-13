@@ -1,7 +1,7 @@
-const User = artifacts.require("User");
-const Project = artifacts.require("Project");
+//const User = artifacts.require("User");
+const TwitterX = artifacts.require("TwitterX");
 
 module.exports = (deployer, network, account) => {
     deployer
-        .deploy(User);
+        .deploy(TwitterX);
 }

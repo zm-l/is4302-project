@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
-
+/*
 contract User {
     struct user {
         string username;
@@ -54,3 +54,4 @@ contract User {
         return userList[msg.sender].created;
     }
 }
+*/
