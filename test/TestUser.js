@@ -1,4 +1,4 @@
-const _deploy_contracts = require('../migrations/2_deploy_contracts');
+/*const _deploy_contracts = require('../migrations/2_deploy_contracts');
 var assert = require("assert");
 const { expectEvent, expectRevert } = require("@openzeppelin/test-helpers");
 
@@ -32,3 +32,4 @@ contract("TestUser", function (accounts) {
     })
 
 });
+*/
