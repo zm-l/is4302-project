@@ -50,6 +50,21 @@ contract ASTREA {
         newProposition.rewardPool = _rewardPool;
     }
 
+    function getRandomProposition() public view returns (uint256) {
+        uint256 randomProposition = uint256(
+            keccak256(
+                abi.encodePacked(
+                    block.timestamp,
+                    block.prevrandao,
+                    msg.sender,
+                    blockhash(block.number - 1) // Use previous block's hash for additional randomness
+                )
+            )
+        ) % propositions.length;
+
+        return randomProposition;
+    }   
+
     function addPlayer(address _playerAddress) public {
         require(!isPlayerRegistered(_playerAddress), "Player is already registered");
         playerAddresses.push(_playerAddress);

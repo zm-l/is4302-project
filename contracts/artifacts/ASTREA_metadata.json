@@ -84,11 +84,6 @@
 						"internalType": "uint256",
 						"name": "_rewardPool",
 						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_certificationTarget",
-						"type": "uint256"
 					}
 				],
 				"name": "addProposition",
@@ -181,6 +176,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "getRandomProposition",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -220,9 +228,9 @@
 						"type": "bool"
 					},
 					{
-						"internalType": "bool",
+						"internalType": "enum ASTREA.Outcomes",
 						"name": "trueOutcome",
-						"type": "bool"
+						"type": "uint8"
 					},
 					{
 						"internalType": "uint256",
@@ -232,11 +240,6 @@
 					{
 						"internalType": "uint256",
 						"name": "rewardPool",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "certificationTarget",
 						"type": "uint256"
 					}
 				],
@@ -327,11 +330,11 @@
 			]
 		},
 		"contracts/ASTREA.sol": {
-			"keccak256": "0xa92b61a2d4d2285452e814f2f74cd0e7c8e83549412deacab26522ffdd149f1c",
+			"keccak256": "0xf33e1e21b6e63f0dbd998a5d2f34543917058ddde7ea71527e989bb795a7ff25",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://338973c5a702c4ba4dc9584e6804cfc4e2b5072127a2fc2c350edfe6ec70a06e",
-				"dweb:/ipfs/QmQrB26bk4qHevvEeangGEpJiiRid2pDGoAG69tDABEpK5"
+				"bzz-raw://f3f50985f552a54a7e18635c25b4b6039fefb9f0dec2385b6fee8865013b1cdb",
+				"dweb:/ipfs/QmWT56ozUsNUYtRQeVTvtfQxNJKuH7ese6kXQvtAHHR9Vy"
 			]
 		},
 		"contracts/KarmaToken.sol": {
