@@ -178,10 +178,10 @@ contract ASTREA {
             address playerAddress = playerAddresses[i];
             Player storage player = players[playerAddress];
             if (_trueOutcome == Outcomes.True) {
-                uint256 certifierReward = player.certifyingStakes[_propositionIndex][true] * rewardPoolAmount / totalCorrectCertifyingStake;
+                uint256 certifierReward = player.certifyingStakes[_propositionIndex][true] * rewardPoolAmount / totalCorrectCertifyingStake + player.certifyingStakes[_propositionIndex][true];
                 karmaTokenContract.mint(playerAddress, certifierReward);
             } else if (_trueOutcome == Outcomes.False) {
-                uint256 certifierReward = player.certifyingStakes[_propositionIndex][false] * rewardPoolAmount / totalCorrectCertifyingStake;
+                uint256 certifierReward = player.certifyingStakes[_propositionIndex][false] * rewardPoolAmount / totalCorrectCertifyingStake + player.certifyingStakes[_propositionIndex][false];
                 karmaTokenContract.mint(playerAddress, certifierReward);
             }
         }
