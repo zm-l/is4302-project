@@ -20,10 +20,6 @@ const App = () => {
   }, []);
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
-  const handleConnect = async () => {
-
-    createUser();
-  };
 
   const UserSol = new ethers.Contract(USER_CONTRACT_ADDRESS, USER_CONTRACT_ABI, provider);
   const UserContract = UserSol.connect(signer);
@@ -49,7 +45,7 @@ const App = () => {
     }
 
     return (
-      <select name="userType" value={userType} onChange={event => handleUserTypeChange(event.target.value)}>
+      <select className="userTypeSelect" value={userType} onChange={event => handleUserTypeChange(event.target.value)}>
         <option id="1">Voter</option>
         <option id="2">Certifier</option>
       </select>
@@ -64,14 +60,17 @@ const App = () => {
     }
 
     const handleButton = async () => {
+      if (amount === 0) {
+        return;
+      }
       await KarmaTokenContract.mint(walletAddress, ethers.BigNumber.from(amount).toString());
     }
 
     return (
       <>
-        <label>Enter amount of ether to trade for KarmaToken:</label>
+        <label className="tokenLabel">Enter amount of ether to trade for KarmaToken:</label>
         <input type='number' onChange={handleAmountChange} />
-        <button onClick={handleButton}>Obtain Karma Token</button>
+        <button className="tokenButton" onClick={handleButton}>Obtain Karma Token</button>
       </>
     )
   }
@@ -91,8 +90,8 @@ const App = () => {
 
     return (
       <>
-        <label>Karma Tokens</label>
-        <label>{balance}</label>
+        <label className="balanceLabel">Karma Tokens</label>
+        <label className="balanceValue">{balance}</label>
       </>
     )
   }
@@ -110,43 +109,39 @@ const App = () => {
     }
 
     return (
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <label>Enter proposition: </label>
+      <div className="addPropositionContainer">
+        <label className="propositionLabel">Enter proposition:</label>
         <input
           type="text"
           value={proposition}
           onChange={handleChange}
-          style={{ width: "300px" }}
+          className="propositionInput"
         />
-        <button onClick={handleAddProposition}>Add Proposition</button>
+        <button className="addPropositionButton" onClick={handleAddProposition}>Add Proposition</button>
       </div>
     )
   }
 
   return (
     <div className="App">
-
-      <h1>TwitterX</h1>
-      <button onClick={handleConnect}> Connect MetaMask</button>
-
-      <div>Wallet Address: {walletAddress} </div>
-
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        &nbsp;
-        <UserTypeSelector />
-        &nbsp;
-        <ObtainTokenButton />
-        &nbsp;
-        <KarmaTokenBalance />
-        &nbsp;
-        <AddProposition />
-      </div>
-      &nbsp;
-      <div>
-        <VoteProposition />
-        <CertifyProposition />
-      </div>
-    </div >
+      <header className="App-header">
+        <h1>TwitterX</h1>
+        <button className="connectButton" onClick={createUser}>Connect MetaMask</button>
+        <div className="walletAddress">Wallet Address: {walletAddress} </div>
+      </header>
+      <main className="App-main">
+        <div className="userInteractionContainer">
+          <UserTypeSelector />
+          <ObtainTokenButton />
+          <KarmaTokenBalance />
+          <AddProposition />
+        </div>
+        <div className="propositionsContainer">
+          <VoteProposition />
+          <CertifyProposition />
+        </div>
+      </main>
+    </div>
   );
 };
 
