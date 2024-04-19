@@ -27,13 +27,4 @@ contract("testVote", accounts => {
             assert.equal(del.logs[0].event, "TweetDeleted", "Tweet should be deleted");
         });
     });
-
-    describe("Voting on tweets", async () => {
-        it("should allow a user to vote on a tweet", async () => {
-            await decentralizedTwitter.createTweet("Tweet to vote on", { from: accounts[0] });
-            await decentralizedTwitter.startProposition(4, { from: accounts[0] });
-            const vote = await decentralizedTwitter.voteOnTweet(4, true, 1,{ from: accounts[1], value: web3.utils.toWei("0.1", "ether") });
-            assert.equal(vote.logs[0].event, "Voted", "Vote should be recorded");
-        });
-    });
 });

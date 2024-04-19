@@ -53,23 +53,9 @@ contract TwitterX {
         emit TweetDeleted(tweetId);
     }
 
-    function startProposition(uint tweetId) public {
-        require(tweets[tweetId - 1].author == msg.sender, "Only the author can start a proposition.");
-        tweets[tweetId - 1].isProposition = true;
-        emit PropositionStarted(tweetId);
+    function getTweet(uint tweetId) public view returns (string memory, address) {
+        Tweet storage tweet = tweets[tweetId - 1];
+        return (tweet.content, tweet.author);
     }
 
-    function voteOnTweet(uint tweetId, bool vote, uint role) public payable {
-        require(tweets[tweetId - 1].isProposition, "This tweet is not a proposition.");
-        require(!tweets[tweetId - 1].hasVoted[msg.sender], "You have already voted on this tweet.");
-        require(msg.value > 0, "You must stake some amount of ether to vote.");
-        require(role == 1 || role == 2, "Invalid role: use 1 for voter, 2 for certifier.");
-
-        tweets[tweetId - 1].hasVoted[msg.sender] = true;
-        tweets[tweetId - 1].stakes[msg.sender] = msg.value;
-        tweets[tweetId - 1].totalVotes++;
-
-        votes[tweetId].push(Vote(msg.sender, vote, role, msg.value));
-        emit Voted(tweetId, msg.sender, vote, role, msg.value);
-    }
 }

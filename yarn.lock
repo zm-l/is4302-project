@@ -750,10 +750,17 @@
     "find-up" "^4.1.0"
     "fs-extra" "^8.1.0"
 
+<<<<<<< Updated upstream
 "@openzeppelin/contracts@^4.9.2":
   "integrity" "sha512-mO+y6JaqXjWeMh9glYVzVu8HYPGknAAnWyxTRhGeckOruyXQMNnlcW6w/Dx9ftLeIQk6N+ZJFuVmTwF7lEIFrg=="
   "resolved" "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-4.9.2.tgz"
   "version" "4.9.2"
+=======
+"@openzeppelin/contracts@^4.9.6":
+  "integrity" "sha512-xSmezSupL+y9VkHZJGDoCBpmnB2ogM13ccaYDWqJTfS3dbuHkgjuwDFUmaFauBCboQMGB/S5UqUl2y54X99BmA=="
+  "resolved" "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-4.9.6.tgz"
+  "version" "4.9.6"
+>>>>>>> Stashed changes
 
 "@openzeppelin/test-helpers@^0.5.16":
   "integrity" "sha512-T1EvspSfH1qQO/sgGlskLfYVBbqzJR23SZzYl/6B2JnT4EhThcI85UpvDk0BkLWKaDScQTabGHt4GzHW+3SfZg=="
