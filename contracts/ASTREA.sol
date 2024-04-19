@@ -1,21 +1,25 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 import "./KarmaToken.sol";
+import "./TwitterX.sol";
 
 contract ASTREA {
     // Refer IV C.System Description
     // To consider: Do we want to dynamically set these values based on bountyAmount?
-    uint256 public constant MAX_VOTING_STAKE = 100;
-    uint256 public constant MIN_CERTIFYING_STAKE = 100;
-    uint256 public constant DECISION_THRESHOLD = 1000;
+    uint256 public constant MAX_VOTING_STAKE = 10000000000000000000;
+    uint256 public constant MIN_CERTIFYING_STAKE = 10;
+    uint256 public constant DECISION_THRESHOLD = 50;
 
     enum Outcomes { True, False, Undecided }
     // Token contract
     KarmaToken karmaTokenContract;
+    TwitterX public twitterXContract;
 
     struct Proposition {
         string tweetURL;
         // A mapping of outcome (true or false) to the total voting stake for that outcome
+        string content;
+        address author;
         mapping(bool=>uint256) votingStake;
         mapping(bool => uint256) certifyingStake;
         bool decided;
@@ -35,17 +39,26 @@ contract ASTREA {
     address[] public playerAddresses;
     mapping(address => Player) private players;
 
-    constructor(uint256 initialSupply) {
-        karmaTokenContract = new KarmaToken("KarmaToken", "KarmaToken", initialSupply);
+    
+
+    constructor(address _karmaTokenAddress, address _twitterXAddress) {
+        karmaTokenContract = KarmaToken(_karmaTokenAddress);
+        twitterXContract = TwitterX(_twitterXAddress); // Initialize TwitterX contract
+    }
+
+    function setTwitterXAddress(address _twitterXAddress) public {
+        twitterXContract = TwitterX(_twitterXAddress);
     }
 
     function getKarmaToken(uint256 _amount) public {
         karmaTokenContract.mint(msg.sender, _amount);
     }
 
-    function addProposition(string memory _tweetURL, uint256 _bountyAmount, uint256 _rewardPool) public {
+    function addProposition(uint256 _tweetId, uint256 _bountyAmount, uint256 _rewardPool) public {
+    (string memory content, address author) = twitterXContract.getTweet(_tweetId); // Assuming TwitterX has a function getTweet that returns content and author
         Proposition storage newProposition = propositions.push();
-        newProposition.tweetURL = _tweetURL;
+        newProposition.content = content;
+        newProposition.author = author;
         newProposition.bountyAmount = _bountyAmount;
         newProposition.rewardPool = _rewardPool;
     }
@@ -167,9 +180,9 @@ contract ASTREA {
         Proposition storage proposition = propositions[_propositionIndex];
         uint256 totalCorrectCertifyingStake;
         if (_trueOutcome == Outcomes.True) {
-            totalCorrectCertifyingStake = proposition.votingStake[true];
+            totalCorrectCertifyingStake = proposition.certifyingStake[true];
         } else {
-            totalCorrectCertifyingStake = proposition.votingStake[false];
+            totalCorrectCertifyingStake = proposition.certifyingStake[false];
         }
         uint256 rewardPoolAmount = proposition.rewardPool; 
 

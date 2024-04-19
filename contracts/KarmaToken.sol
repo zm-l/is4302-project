@@ -17,7 +17,7 @@ contract KarmaToken is ERC20 {
     }
 
     // Can be removed
-    function balanceOf(address account) public view override returns (uint256) {
-        return super.balanceOf(account);
-    }
+    //function balanceOf(address account) public view override returns (uint256) {
+    //    return super.balanceOf(account);
+    //}
 }
