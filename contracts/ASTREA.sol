@@ -55,7 +55,6 @@ contract ASTREA {
             keccak256(
                 abi.encodePacked(
                     block.timestamp,
-                    block.prevrandao,
                     msg.sender,
                     blockhash(block.number - 1) // Use previous block's hash for additional randomness
                 )

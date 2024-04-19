@@ -1,18 +1,23 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
-/*
+
 contract User {
+    enum UserType {
+        Certifier,
+        Voter
+    }
+
     struct user {
         string username;
-        string password;
+        UserType userType;
         address owner;
         bool created;
     }
 
     mapping(address => user) userList;
 
-    event userCreated(string username, string password, address owner);
-    event userUpdated(string username, string password, address owner);
+    event userCreated(string username, UserType userType, address owner);
+    event userUpdated(string userType, address owner);
     event userDeleted(address owner);
 
     uint256 public numUsers = 0;
@@ -22,16 +27,13 @@ contract User {
         _;
     }
 
-    function createUser(
-        string memory username,
-        string memory password
-    ) external {
+    function createUser(string memory username) external {
         require(userList[msg.sender].created == false, "User already exists!");
-        user memory newUser = user(username, password, msg.sender, true);
+        user memory newUser = user(username, UserType.Voter, msg.sender, true);
         userList[msg.sender] = newUser;
         numUsers++;
 
-        emit userCreated(username, password, msg.sender);
+        emit userCreated(username, UserType.Voter, msg.sender);
     }
 
     function deleteUser() external validUser {
@@ -40,18 +42,20 @@ contract User {
         emit userDeleted(msg.sender);
     }
 
-    function updateUser(
-        string memory username,
-        string memory password
-    ) external validUser {
-        userList[msg.sender].username = username;
-        userList[msg.sender].password = password;
+    function updateUser(string memory userType) external validUser {
+        UserType newUserType = UserType.Voter;
+        if (
+            keccak256(abi.encodePacked(userType)) ==
+            keccak256(abi.encodePacked("Certifier"))
+        ) {
+            newUserType = UserType.Certifier;
+        }
+        userList[msg.sender].userType = newUserType;
 
-        emit userUpdated(username, password, msg.sender);
+        emit userUpdated(userType, msg.sender);
     }
 
     function isValidUser() public view returns (bool) {
         return userList[msg.sender].created;
     }
 }
-*/
