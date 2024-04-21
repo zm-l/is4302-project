@@ -27,7 +27,7 @@ VeriAstraea uses blockchain technology to help verify the accuracy of tweets on 
     - Test voting functionality on a proposition.
     - Check that player stakes increase upon voting.
 5. Certify Proposition:
-    .
+    - Verify that players can certify propositions.
 6. Decide Proposition and Distribute Rewards:
     - Simulate the process of deciding a proposition by voting and certifying.
     - Ensure rewards are correctly distributed to players involved in the process.
@@ -51,12 +51,12 @@ VeriAstraea uses blockchain technology to help verify the accuracy of tweets on 
 ## Instructions to run test cases
 1. Ensure that node.js is installed
 2. Install Ganache from Truffle Suite
-3. Install all dependencies
+3. Install all dependencies\
 `npm install`
 4. Start up Ganache locally
-5. Compile using hardhat
+5. Compile using hardhat\
 `npx hardhat compile`
-6. Start hardhat
+6. Start hardhat\
 `npx hardhat node`
-7. Run all test cases
+7. Run all test cases\
 `npx hardhat test`
