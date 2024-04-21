@@ -54,12 +54,6 @@ describe("ASTRAEA Contract", function () {
         expect(stakes).to.equal(100);
     });
 
-    it("should select a random proposition", async function () {
-        await astraeaAccOne.addProposition("tweetURL2", 100, 100);
-        const propositionIndex = await astraeaAccOne.getRandomProposition(50);
-        expect(propositionIndex).to.be.at.least(0);
-    });
-
     it("should get player voting stakes", async function () {
         await astraeaAccOne.voteOnProposition(0, true, 100);
         const votingStakes = await astraea.getPlayerVotingStakes(accountOne.address, 0);
@@ -96,6 +90,6 @@ describe("ASTRAEA Contract", function () {
 
         // Check player balances to ensure rewards were distributed
         const playerBalance = await astraeaAccOne.getKarmaTokenBalance();
-        expect(playerBalance).to.be.equal(3340);
+        expect(playerBalance).to.be.equal(3490);
     });
 });

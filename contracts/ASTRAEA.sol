@@ -130,7 +130,7 @@ contract ASTRAEA {
             )
         ) % undecidedCount;
 
-        return randomIndex;
+        return undecidedIndices[randomIndex];
     }
 
     function addPlayer(address _playerAddress) public {
