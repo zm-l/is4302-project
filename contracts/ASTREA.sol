@@ -217,9 +217,9 @@ contract ASTREA {
         Proposition storage proposition = propositions[_propositionIndex];
         uint256 totalCorrectCertifyingStake;
         if (_trueOutcome == Outcomes.True) {
-            totalCorrectCertifyingStake = proposition.votingStake[true];
+            totalCorrectCertifyingStake = proposition.certifyingStake[true];
         } else {
-            totalCorrectCertifyingStake = proposition.votingStake[false];
+            totalCorrectCertifyingStake = proposition.certifyingStake[false];
         }
         uint256 rewardPoolAmount = proposition.rewardPool; 
 
