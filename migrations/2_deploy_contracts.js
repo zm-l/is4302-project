@@ -1,9 +1,9 @@
 
 const TwitterX = artifacts.require("TwitterX");
 const KarmaToken = artifacts.require("KarmaToken");
-const ASTREA = artifacts.require("ASTREA");
+const ASTRAEA = artifacts.require("ASTRAEA");
 
-module.exports = async function(deployer, network, accounts) {
+module.exports = async function (deployer, network, accounts) {
 
     await deployer.deploy(KarmaToken, "KarmaToken", "KMT", web3.utils.toWei('5000', 'ether'));
     const karmaToken = await KarmaToken.deployed();
@@ -11,6 +11,5 @@ module.exports = async function(deployer, network, accounts) {
     await deployer.deploy(TwitterX);
     const twitterX = await TwitterX.deployed();
 
-    await deployer.deploy(ASTREA, karmaToken.address, twitterX.address);
-    const astrea = await ASTREA.deployed();
+    await deployer.deploy(ASTRAEA, karmaToken.address, twitterX.address);
 };
