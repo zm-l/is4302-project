@@ -1,12 +1,12 @@
 const hre = require("hardhat");
 
 async function main() {
-  const ASTREA = await hre.ethers.getContractFactory("ASTREA");
-  const astrea = await ASTREA.deploy(1000000);
+  const ASTRAEA = await hre.ethers.getContractFactory("ASTRAEA");
+  const astraea = await ASTRAEA.deploy(1000000);
 
-  await astrea.deployed();
+  await astraea.deployed();
 
-  console.log("ASTREA deployed to:", astrea.address);
+  console.log("ASTRAEA deployed to:", astraea.address);
 }
 
 main()
