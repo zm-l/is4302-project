@@ -33,20 +33,23 @@ app.get("/api/get-tweet", async (req, res) => {
     // Generate the Authorization header for Bearer token
     const authorizationHeader = `Bearer ${accessToken}`;
 
-    // // Fetch data from Twitter API
-    // const response = await axios.get(
-    //   `https://api.twitter.com/1.1/statuses/show.json?id=${tweetId}&tweet_mode=extended`,
-    //   {
-    //     headers: {
-    //       Authorization: authorizationHeader,
-    //       // Optional: Include basic authentication header for fallback (some endpoints may require it)
-    //       "Authorization-Basic": `Basic ${basicAuth}`,
-    //     },
-    //   }
-    // );
+    // Fetch data from Twitter API
+    const response = await axios.get(
+      `https://api.twitter.com/1.1/statuses/show.json?id=${tweetId}&tweet_mode=extended`,
+      {
+        headers: {
+          Authorization: authorizationHeader,
+          // Optional: Include basic authentication header for fallback (some endpoints may require it)
+          "Authorization-Basic": `Basic ${basicAuth}`,
+        },
+      }
+    );
 
     // Return the entire response data from Twitter API
-    res.json({ favorite_count: 336 }); // res.json(response.data);
+    res.json(response.data);
+
+    // Alternatively, if you do not have a valid Twitter API key, you can return a dummy response
+    // res.json({ favorite_count: 336 });
   } catch (error) {
     // If there's an error, return an error response
     res.status(error.response?.status || 500).json({ error: error.message });
