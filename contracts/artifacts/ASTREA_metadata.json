@@ -1,0 +1,454 @@
+{
+	"compiler": {
+		"version": "0.8.22+commit.4fc1097e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "initialSupply",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "tweetURL",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "bountyAmount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "rewardPool",
+						"type": "uint256"
+					}
+				],
+				"name": "PropositionAdded",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "DECISION_THRESHOLD",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MAX_VOTING_STAKE",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MIN_CERTIFYING_STAKE",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_playerAddress",
+						"type": "address"
+					}
+				],
+				"name": "addPlayer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_tweetURL",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_bountyAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_rewardPool",
+						"type": "uint256"
+					}
+				],
+				"name": "addProposition",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_propositionIndex",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "_certification",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_stake",
+						"type": "uint256"
+					}
+				],
+				"name": "certifyProposition",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "getKarmaToken",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getKarmaTokenBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "playerAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "propositionIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "getPlayerCertifyingStakes",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "playerAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "propositionIndex",
+						"type": "uint256"
+					}
+				],
+				"name": "getPlayerVotingStakes",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getPropositionLength",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_stake",
+						"type": "uint256"
+					}
+				],
+				"name": "getRandomProposition",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "playerAddress",
+						"type": "address"
+					}
+				],
+				"name": "isPlayerRegistered",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "playerAddresses",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "propositions",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "tweetURL",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "votingStakeTrue",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "votingStakeFalse",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "certifyingStakeTrue",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "certifyingStakeFalse",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "decided",
+						"type": "bool"
+					},
+					{
+						"internalType": "enum ASTREA.Outcomes",
+						"name": "trueOutcome",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "bountyAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "rewardPool",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_propositionIndex",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "_vote",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_stake",
+						"type": "uint256"
+					}
+				],
+				"name": "voteOnProposition",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ASTREA.sol": "ASTREA"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/interfaces/draft-IERC6093.sol": {
+			"keccak256": "0x60c65f701957fdd6faea1acb0bb45825791d473693ed9ecb34726fdfaa849dd7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ea290300e0efc4d901244949dc4d877fd46e6c5e43dc2b26620e8efab3ab803f",
+				"dweb:/ipfs/QmcLLJppxKeJWqHxE2CUkcfhuRTgHSn8J4kijcLa5MYhSt"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+			"keccak256": "0xc3e1fa9d1987f8d349dfb4d6fe93bf2ca014b52ba335cfac30bfe71e357e6f80",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c5703ccdeb7b1d685e375ed719117e9edf2ab4bc544f24f23b0d50ec82257229",
+				"dweb:/ipfs/QmTdwkbQq7owpCiyuzE7eh5LrD2ddrBCZ5WHVsWPi1RrTS"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c",
+				"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+			"keccak256": "0xaa761817f6cd7892fcf158b3c776b34551cde36f48ff9703d53898bc45a94ea2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0ad7c8d4d08938c8dfc43d75a148863fb324b80cf53e0a36f7e5a4ac29008850",
+				"dweb:/ipfs/QmcrhfPgVNf5mkdhQvy1pMv51TFokD3Y4Wa5WZhFqVh8UV"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6a708e8a5bdb1011c2c381c9a5cfd8a9a956d7d0a9dc1bd8bcdaf52f76ef2f12",
+				"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
+			]
+		},
+		"ASTREA.sol": {
+			"keccak256": "0xde8b13e4837edabadfcc0da2b7550a1a34387f397b7756c5971eb3db5c6f8aa9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a0245a3def355684df1bb45a21e2d191935f42a82f02d3da52d8996a411ba9f3",
+				"dweb:/ipfs/QmZNoTssK6HwjdXTVi8nNTnpFtsDNRUDaWu7A7pVcGF1L5"
+			]
+		},
+		"KarmaToken.sol": {
+			"keccak256": "0x326493296876328eef3c4efbb1185793a04257b5e7c5bf3b6806d8d934adf5c9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://c74e20b90070fb9e37e03e42d4806c703bbee5962c43d2b132c699a7099439ea",
+				"dweb:/ipfs/QmYwQmub5C9NBbWbCBCnJcxybEvL2HawG8Fy5oe6GPFaUj"
+			]
+		}
+	},
+	"version": 1
+}

@@ -4,7 +4,6 @@ import "./KarmaToken.sol";
 
 contract ASTRAEA {
     // Refer IV C.System Description
-    // To consider: Do we want to dynamically set these values based on bountyAmount?
     uint256 public constant MAX_VOTING_STAKE = 100;
     uint256 public constant MIN_CERTIFYING_STAKE = 100;
     uint256 public constant DECISION_THRESHOLD = 1000;

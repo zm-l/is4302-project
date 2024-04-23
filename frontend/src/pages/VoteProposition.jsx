@@ -91,10 +91,12 @@ const VoteProposition = () => {
         gasLimit: 5000000,
       };
 
+      console.log(propositionIndex, voteValue, stakeAmount);
+
       // Vote on the proposition
       const tx = await contract.voteOnProposition(
         propositionIndex,
-        voteValue,
+        voteValue === "true" ? true : false,
         stakeAmount,
         overrides
       );

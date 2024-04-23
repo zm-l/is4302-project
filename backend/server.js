@@ -46,7 +46,7 @@ app.get("/api/get-tweet", async (req, res) => {
     // );
 
     // Return the entire response data from Twitter API
-    res.json({ favorite_count: 578 }); // res.json(response.data);
+    res.json({ favorite_count: 336 }); // res.json(response.data);
   } catch (error) {
     // If there's an error, return an error response
     res.status(error.response?.status || 500).json({ error: error.message });
