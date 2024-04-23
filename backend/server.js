@@ -48,7 +48,7 @@ app.get("/api/get-tweet", async (req, res) => {
     // Return the entire response data from Twitter API
     res.json(response.data);
 
-    // Alternatively, if you do not have a valid Twitter API key, you can return a dummy response
+    // Alternatively, if you do not have a valid Twitter API key, you can return a dummy response. Comment out the above line and uncomment the line below:
     // res.json({ favorite_count: 336 });
   } catch (error) {
     // If there's an error, return an error response
