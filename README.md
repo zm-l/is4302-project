@@ -1,65 +1,76 @@
-# VeriAstraea
+# VeriAstraea: Decentralized Truth Verification for Twitter
 <p align="center">
-    <img src="frontend/public/VeriAstrea.jpg">
+    <img src="frontend/public/VeriAstrea.jpg" width="300" height="300">
 </p>
 
-VeriAstraea uses blockchain technology to help verify the accuracy of tweets on social media. Users can join our decentralized platform to evaluate whether a tweet is true or false. Users who actively contribute to verifying tweets are rewarded with cryptocurrency, encouraging a culture of quality and participation. Our system is designed to handle large volumes of submissions securely, ensuring user privacy and scalability.
+## About VeriAstrea
+VeriAstrea is a decentralized application developed on the Ethereum blockchain, drawing inspiration from the [Astraea: A Decentralized Blockchain Oracle](https://blockchain.ieee.org/technicalbriefs/march-2019/astraea-a-decentralized-blockchain-oracle) paper. Its primary objective is to provide a trustworthy and transparent mechanism for validating the accuracy of Twitter posts, thereby combating the proliferation of misinformation and fake news on social media platforms.
 
-## Tech Stack
-**Frontend**: React
-**Backend**: Solidity
+## Features
 
-## Workflow
-1. User connects their account using Metamask
-2. They register as a player
+1. **Submit Twitter Post:** Users can submit URLs of Twitter posts to the VeriAstrea platform along with a specified bounty amount to incentivize verification.
+  
+2. **Certify Posts:** Certifiers stake a higher quantity of Karma Tokens to certify the truthfulness of submitted Twitter posts of their choosing based on their expertise and research.
+  
+3. **Vote on Posts:** Voters stake a portion of their Karma Tokens to cast votes on the veracity of a randomly selected Twitter posts.
 
-## Assumptions
 
-## Test Case Documentation
+## Technologies Used
+- **React**: Frontend development
+- **Chakra UI**: Component library for UI design
+- **Solidity**: Smart contract development for Ethereum blockchain
+- **Node.js**: Backend server development
 
-### Test Cases for full workflow (ASTRAEA)
-1. Register Players:
-    - Verify that new players can be registered successfully.
-    - Ensure that a player cannot be registered twice.
-2. Get KarmaTokens:
-    - Test that players can obtain KarmaTokens.
-    - Check that adding a proposition requires sufficient KarmaTokens.
-3. Add Proposition:
-    - Confirm that players can add propositions.
-4. Vote on Proposition:
-    - Test voting functionality on a proposition.
-    - Check that player stakes increase upon voting.
-5. Certify Proposition:
-    - Verify that players can certify propositions.
-6. Decide Proposition and Distribute Rewards:
-    - Simulate the process of deciding a proposition by voting and certifying.
-    - Ensure rewards are correctly distributed to players involved in the process.
+## Getting Started
 
-### Test Cases for KarmaToken
-1. Verify Contract Initialization:
-    - Checks if the contract initializes with the correct name, symbol, and initial supply.
-2. Mint Tokens to Account:
-    - Tests the minting functionality by minting tokens to a specific account.
-    - Verifies that the Transfer event is emitted correctly.
-    - Ensures the account's balance matches the minted amount.
-3. Burn Tokens from Account:
-    - Tests the burning functionality by burning tokens from an account.
-    - Verifies that the Transfer event is emitted correctly.
-    - Ensures the account's balance is reduced by the burned amount.
-4. Prevent Excessive Burning:
-    - Validates that attempting to burn more tokens than an account has results in a revert.
-5. Check Account Balance:
-    - Verifies that the balance of an account matches the expected amount after minting tokens to it.
+### Prerequisites
+- npm
+    ```bash
+    npm install
+    ```
+### Running the app locally
+All three processes (frontend, backend and hardhat) should be running at the same time.
 
-## Instructions to run test cases
-1. Ensure that node.js is installed
-2. Install Ganache from Truffle Suite
-3. Install all dependencies\
-`npm install`
-4. Start up Ganache locally
-5. Compile using hardhat\
-`npx hardhat compile`
-6. Start hardhat\
-`npx hardhat node`
-7. Run all test cases\
-`npx hardhat test`
+1. Setup frontend on localhost:3000
+    ```bash
+    cd is4302-project/frontend
+    npm install
+    npm start
+    ```
+
+2. Setup backend on localhost:5000
+    ```bash
+    cd is4302-project/backend
+    npm install
+    node server.js
+    ```
+
+3. Setup hardhat
+    1. Navigate to the project directory:
+        ```bash
+        cd is4302-project
+        ```
+    
+    2. Compile the contracts using Hardhat:
+        ```bash
+        npx hardhat compile
+        ```
+    
+    3. To deploy the contracts to a local Ethereum network, start a local Hardhat node:
+        ```bash
+        npx hardhat node
+        ```
+    
+    4. In a separate terminal, deploy the contracts to the local network:
+        ```bash
+        npx hardhat run scripts/deploy.js --network localhost
+        ```
+        
+## Contribution Guidelines
+
+If you're interested in contributing to VeriAstrea, please follow these guidelines:
+
+- Fork the repository and create your branch from `main`.
+- Ensure any new code is well-tested and documented.
+- Submit a pull request with a detailed description of the changes.
+
