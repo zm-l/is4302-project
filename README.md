@@ -74,3 +74,7 @@ If you're interested in contributing to VeriAstrea, please follow these guidelin
 - Ensure any new code is well-tested and documented.
 - Submit a pull request with a detailed description of the changes.
 
+## License
+
+This project is licensed under the MIT License.
+
