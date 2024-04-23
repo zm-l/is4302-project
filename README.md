@@ -1,4 +1,7 @@
-# IS4302 - VeriAstraea
+# VeriAstraea
+<p align="center">
+    <img src="frontend/public/VeriAstrea.jpg">
+</p>
 
 VeriAstraea uses blockchain technology to help verify the accuracy of tweets on social media. Users can join our decentralized platform to evaluate whether a tweet is true or false. Users who actively contribute to verifying tweets are rewarded with cryptocurrency, encouraging a culture of quality and participation. Our system is designed to handle large volumes of submissions securely, ensuring user privacy and scalability.
 
