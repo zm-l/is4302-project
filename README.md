@@ -39,13 +39,22 @@ All three processes (frontend, backend and hardhat) should be running at the sam
     ```
 
 2. Setup backend on localhost:5000
-    ```bash
-    cd is4302-project/backend
-    npm install
-    node server.js
-    ```
+   1. Running the backend server
+        ```bash
+        cd is4302-project/backend
+        npm install
+        node server.js
+        ```
+    2. Create a `.env` file with your Twitter API key.
+       ```
+       TWITTER_CONSUMER_KEY="*"
+       TWITTER_CONSUMER_SECRET="*"
+       TWITTER_ACCESS_TOKEN_KEY="*"
+       TWITTER_ACCESS_TOKEN_SECRET="*"
+       ```
+    3. Alternatively, if you do not have a valid Twitter API key, you can return a dummy response. Instructions are provided as comments in the `is4302-project/server.js` file.
 
-3. Setup hardhat
+4. Setup hardhat
     1. Navigate to the project directory:
         ```bash
         cd is4302-project
