@@ -3,8 +3,8 @@
     <img src="frontend/public/VeriAstrea.jpg" width="300" height="300">
 </p>
 
-## About VeriAstrea
-VeriAstrea is a decentralized application developed on the Ethereum blockchain, drawing inspiration from the [Astraea: A Decentralized Blockchain Oracle](https://blockchain.ieee.org/technicalbriefs/march-2019/astraea-a-decentralized-blockchain-oracle) paper. Its primary objective is to provide a trustworthy and transparent mechanism for validating the accuracy of Twitter posts, thereby combating the proliferation of misinformation and fake news on social media platforms.
+## About VeriAstraea
+VeriAstraea is a decentralized application developed on the Ethereum blockchain, drawing inspiration from the [Astraea: A Decentralized Blockchain Oracle](https://blockchain.ieee.org/technicalbriefs/march-2019/astraea-a-decentralized-blockchain-oracle) paper. Its primary objective is to provide a trustworthy and transparent mechanism for validating the accuracy of Twitter posts, thereby combating the proliferation of misinformation and fake news on social media platforms.
 
 ## Features
 
