@@ -74,6 +74,7 @@ All three processes (frontend, backend and hardhat) should be running at the sam
         ```bash
         npx hardhat run scripts/deploy.js --network localhost
         ```
+    5. After deploying the contracts, update the contract address in the frontend application. Replace the existing contract address in `is4302-project/frontend/src/Constant/constant.js` with the new one generated during deployment. 
         
 ## Contribution Guidelines
 
